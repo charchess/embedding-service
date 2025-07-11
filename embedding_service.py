@@ -11,7 +11,8 @@ print(f"Embedding service is using device: {device}")
 # Charge le modèle d'embedding UNE SEULE FOIS au démarrage du service.
 # C'est crucial pour les performances.
 # 'all-MiniLM-L6-v2' est un excellent choix, petit et performant.
-model = SentenceTransformer('all-MiniLM-L6-v2', device=device)
+#model = SentenceTransformer('all-MiniLM-L6-v2', device=device)
+model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2', device=device)
 print("Embedding model loaded successfully.")
 
 # Initialise l'application FastAPI
