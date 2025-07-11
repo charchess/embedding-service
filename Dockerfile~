@@ -1,0 +1,18 @@
+# Utilise une image Python légère comme base
+FROM python:3.10-slim-buster
+
+# Définit le répertoire de travail à l'intérieur du conteneur
+WORKDIR /app
+
+# Copie le fichier des dépendances Python et les installe
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copie le code de l'application Python
+COPY app.py .
+
+# Expose le port sur lequel l'application écoutera
+EXPOSE 8000
+
+# Commande pour lancer l'application FastAPI
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
